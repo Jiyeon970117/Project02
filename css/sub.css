@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+}
+/* body{overflow: hidden;} */
+h1, h2, h3, h4, h5, h6, figure, span{
+    margin: 0;
+    text-align: center;
+    color: #222;
+}
+p{font-size: 18px; color: #444; text-align: center;}
+h2{
+    font-size: 88px;
+    font-weight: 700;
+}
+ul, a{
+    list-style: none;
+    text-decoration: none;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+header.active{border-bottom: 1px solid #ddd;}
+header.active .navbar{padding: 8px 12px;}
+header.active .logo a{background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_1.svg);}
+header.active .menu{display: flex;}
+.navbar{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+}
+.logo{font-size: 50px;}
+.logo a{
+    display: block;
+    padding-top: 50px;
+    background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_white.svg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 225px;
+    height: 50px;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.menu li a{
+    font-size: 18px;
+    color: #888;
+    padding: 8px 40px;
+}
+.menu li a:hover{color: #35719e;}
+.menu li.active a{color: #35719e;}
+
+
+.navbar .button{
+    display: flex; 
+    justify-content: center;
+    text-align: center;
+}
+.leng{
+    width: 80px;
+}
+.leng li{
+    display: none;
+    padding: 8px 12px;
+}
+.leng li.active{display: block;}
+
+.leng li a{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.toggle{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background: none;
+    border: none;
+}
+.toggle::before,
+.toggle::after{
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+}
+.toggle::before{top: 35%;}
+.toggle::after{bottom: 35%;}
+
+
+
+.content{
+    width: 100%;
+    height: 100vh;
+}
+.content div{
+    height: 100%;
+    position: relative;
+}
+
+video{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/* 비디오 아이콘 */
+.video_icon{
+    position: absolute;
+    bottom: 5%; left: 50%;
+    transform: translateX(-50%);
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video_icon li span{color: #fff;}
+.video_icon li i{
+    padding: 8px 12px;
+    font-size: 8px;
+    color: #fff;
+}
+
+/* 컨텐츠1 */
+.content1{}
+.content1 .chapter{
+    margin-top: 24px;
+    padding-left: 50px;
+}
+.content1 .chapter span{
+    color: #888;
+    padding: 8px 12px;
+}
+
+
+.content1 .title{margin-top: 150px;}
+.content1 .title h2{
+    font-size: 72px;
+    color: #222;
+}
+.content1 .title h4{
+    font-size: 32px; color: #222;
+    margin-top: 35px;
+}
+.content1 .title p{font-size: 22px; color: #444;}
+
+/* 줌효과 */
+.content1 .bts_box{
+    width: 80%;
+    margin: 80px auto 0;
+}
+.bts_box li{display: none;}
+.bts_box li.active{display: list-item;}
+
+.content1 .bts_box figure{
+    width: 90%;
+    margin: 0 auto; 
+    overflow: hidden;
+}
+
+.content1 .bts_box figure img{width: 100%;}
+
+/* .content1 .bts_box figure img.active{
+    transform: scale(1.05);
+    transition: all .7s ease-in-out;
+} */
+
+.content1 .bts_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.content1 .bts_button span{
+    display: inline-block;
+    width: 20px; height: 2px;
+    background: #888;
+    margin-right: 16px;
+}
+.content1 .bts_button span.active{
+    width: 64px;
+    height: 4px;
+    background: #222;
+}
+
+/* section2 */
+
+.content2{
+    margin-top: 240px;
+    padding: 160px 0;
+    background: #e5faff;
+}
+.content2 .tit_con1{}
+.content2 .tit_con1 h2{
+    font-size: 56px;
+    color: #222;
+}
+
+.content2 .tit_con1 > p:nth-of-type(1){margin-top: 40px;}
+
+.content2 .tit_con1 > p{
+    color: #444;
+    font-size: 18px;
+    line-height: 2;
+}
+
+
+.content2 .tit_con2{ 
+    margin-top: 80px;
+    overflow: hidden;
+}
+.content2 .tit_con2 ul{
+    width: 85%;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 120px 80px;
+}
+.content2 .tit_con2 ul li{width: 435px; margin-left: 80px;}
+.content2 .tit_con2 ul li figure{
+    width: 400px;
+    position: relative;
+}
+
+.content2 .tit_con2 ul li figure img{width: 100%;}
+
+.content2 .tit_con2 ul li figure img:nth-child(2){
+    display: none;
+    position: absolute;
+    top: 0%; left: 0%;
+    transition: all .5s ease-in-out;
+    transform: translateY(-100%);
+}
+.content2 .tit_con2 ul li figure img:nth-child(2).active{transform: translateY(0); display: block;}
+
+.content2 .tit_con2 ul li figure figcaption{
+    font-size: 56px;
+    color: #222;
+    font-weight: 700;
+    text-align: left;
+    position: absolute;
+    left: -80px; bottom: 80px;
+    z-index: 100;
+}
+
+
+/* 버튼 */
+.content2 .tit_con2 .tit_con3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.content2 .tit_con2 .tit_con3 span{
+    display: inline-block;
+    width: 20px; height: 2px;
+    background: #888;
+    margin-right: 16px;
+}
+.content2 .tit_con2 .tit_con3 span.active{
+    width: 64px;
+    height: 4px;
+    background: #222;
+}
+
+.content2 .tit_con2 .tit_con4{
+    margin-top: 80px;
+    font-size: 18px;
+    color: #444;
+    line-height: 1.8;
+}
+.content3{}
+.content3 .con1{
+    margin-top: 240px;
+}
+.content3 .con1 h2{
+    font-size: 56px;
+    margin-bottom: 40px;
+}
+.content3 .con1 p{line-height: 1.8;}
+
+.content3 .video_con2{
+    width: 80%;
+    margin: 80px auto 120px;
+}
+/* 줌효과2 */
+.content3 .video_con2 figure{
+    position: relative;
+    width: 85%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.content3 .video_con2 figure img{width: 100%;}
+.content3 .video_con2 figure img:hover{
+    transform: scale(1.1);
+    transition: all .7s ease-in-out;
+}
+
+
+/* bts-비디오아이콘 */
+.content3 .video_con2 figure i{
+    font-size: 70px;
+    font-weight: 400;
+    color: #fff;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content3 > p{
+    line-height: 1.8;
+}
+.content3 .con3{
+    width: 95%;
+    margin: 80px auto;
+}
+
+.content3 .con3 figure{width: 100%;}
+
+.content3 .con3 figure img{width: 100%;}
+
+.content3 .con4{margin-top: 160px;}
+.content3 .con4 ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content3 .con4 ul li{
+    width: 50%;
+    border-top: 1px solid #ddd ;
+    padding: 60px 50px 50px;
+    position: relative;
+}
+.content3 .con4 ul li:nth-of-type(1){
+    border-right: 1px solid #ddd ;
+}
+
+.content3 .con4 ul li h4{
+    font-size: 22px; color: #35719e;
+    text-align: left;
+    width: 70%;
+    margin-left: auto;
+
+}
+.content3 .con4 ul li p{
+    font-size: 32px; 
+    font-weight: 600;
+    color: #222;
+    line-height: 1.5;
+    text-align: left;
+    width: 70%;
+    margin-left: auto;
+    margin-top: 20px;
+
+}
+.content3 .con4 ul li:nth-of-type(1) p::after{
+    content: 'ㄱ';
+    clear: both;
+    display: block;
+    transform: translateY(-50%) rotate(50deg);
+    position: absolute;
+    right: 5%; top: 50%;
+}
+
+.content3 .con4 ul li:nth-of-type(2) h4{margin: 0; color: #888;}
+
+.content3 .con4 ul li:nth-of-type(2) p{
+    margin: 0; color: #888;
+    margin-top: 20px;
+
+}
+
+/* sns아이콘 */
+.sns-icon div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0; right: -5%;
+    background: #fff;
+    display: none;
+}
+.sns-icon div.active{
+    display: flex; right: 0;
+}
+
+.sns-icon div a{
+    color: black;
+    width: 50px;
+    /* height: 50px; */
+    padding: 17px 15px;
+    text-align: center;
+}
+.sns-icon div a i{font-size: 16px;}
+
+
+
+/* 푸터 */
+footer{
+    background: #002c5f;
+    color: #fff;
+}
+.footer_inner{
+    width: 95%;
+    padding: 80px 0 120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.footer_logo{
+    width: 225px;
+    height: 50px;
+    background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_footer.svg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.footer_logo a{display: block; padding-top: 50px;}
+
+.footer_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer_box{
+    width: 660px;
+    display: flex;
+    justify-content: center;
+}
+.footer-list{width: 250px;}
+.footer-list li{}
+.footer-list li:nth-of-type(2){margin-top: 15px;}
+.footer-list li a{
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.footer-relation{width: 350px; margin-left: 100px;}
+
+.footer-relation li{padding: 8px 10px;}
+
+.footer-relation li:nth-of-type(3){display: inline-block;}
+
+.footer-relation li:nth-of-type(4){display: inline-block;}
+
+.footer-relation li a{color: #fff;  font-size: 17px;}
+
+.footer-relation li:nth-of-type(4) a i{font-size: 24px;}
+
+.footer_copyright{margin-top: 70px; opacity: 0.5;}
+

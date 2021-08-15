@@ -1,0 +1,268 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+}
+
+/* header */
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+.navbar{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 10px;
+}
+.logo{
+    font-size: 50px;
+    margin-top: 12px;
+}
+.logo a{
+    display: block;
+    padding-top: 50px;
+    background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_white.svg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 225px;
+    height: 50px;
+}
+
+/* 헤더 스크롤 이벤트 */
+.navbar.active .logo a{background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo.svg) no-repeat;}
+.navbar.active .leng li a{color: #000;}
+.navbar.active .leng li a:hover{color: #35719e;}
+.navbar.active .toggle::after, 
+.navbar.active .toggle::before{background: #000;}
+
+
+
+.navbar .button{
+    display: flex; 
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+}
+
+/* 언어버튼 */
+.leng{width: 64px; height: 64px;}
+.leng.active{
+    width: 100%; height: 100%;
+    background: #fff;
+}
+
+.leng li{
+    width: 64px; height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.leng li.active{display: flex;}
+
+.leng li a{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+}
+/* .leng li.active a.active{color: #fff;} */
+.leng:hover li a{color: #000;}
+.leng li a:hover{color: #35719e;}
+
+
+
+/* 토글버튼 */
+.button-box.active{
+    -webkit-transform : rotate (360deg);
+	transform : rotate (360deg);
+}
+.button-box button{
+    width: 80px;
+    height: 40px;
+    display: block;
+    position: relative;
+    background: none;
+    border: none;
+    margin-top: 12px;
+}
+
+.button-box button::before,
+.button-box button::after{
+    content: '';
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button-box button::before{margin-top: -5px;}
+.button-box button::after{margin-top: 5px;}
+
+/* 클릭이벤트 */
+.button-box.active button::before{transform: translate(-50%, -50%) rotate( 495deg ); margin: 0;}
+.button-box.active button::after{transform: translate(-50%, -50%) rotate( 405deg ); margin: 0;}
+
+
+
+/*토글버튼 bg */
+.bg_menu{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+.bg_menu.active{
+transition: .7s;
+display: block;
+}
+.bg_menubar{
+    width: 50%;
+    height: 100%;
+    background: #35719e;
+    position: absolute;
+    top: 0; right: 0;
+}
+.menu_box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+.menu_box li{
+    width: 70%;
+    /* display: flex;
+    flex-direction: column; */
+    font-size: 64px;
+    font-weight: 600;
+    color: #fff;
+    text-align: left;
+    line-height: 2;
+    position: relative;
+}
+.menu_box li.active{
+    color: #002c5f;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    padding-bottom: 45px;
+}
+
+
+/* 상세설명 absolute right로 -200% 보냄 */
+.menu_box li span{
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: -200%
+}
+.menu_box li span.active{
+    right: 0%;
+    transition: .5s;
+}
+
+.menu_box li span a{
+    padding: 12px 15px;
+    font-size: 24px;
+    color: rgba(225, 225, 225, .4);
+}
+.p_link{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.p_1, .p_2{
+    text-align: left;
+    width: 70%;
+    display: flex;
+    /* justify-content: space-between; */
+}
+.p_2{margin: 15px 0;}
+.p_1 a, .p_2 a{
+    white-space: nowrap;
+    list-style: none;
+    font-size: 18px; color: #fff;
+    padding: 8px 12px;
+}
+.p_2 a{opacity: .7;}
+
+
+
+
+
+
+/* 푸터 */
+footer{
+    background: #002c5f;
+    color: #fff;
+}
+.footer_inner{
+    width: 95%;
+    padding: 60px 0 120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.footer_logo{
+    width: 225px;
+    height: 50px;
+    background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_footer.svg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.footer_logo a{display: block; padding-top: 50px;}
+
+.footer_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer_box{
+    width: 660px;
+    display: flex;
+    justify-content: center;
+}
+.footer-list{width: 250px;}
+.footer-list li{}
+.footer-list li:nth-of-type(2){margin-top: 15px;}
+.footer-list li a{
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.footer-relation{width: 350px; margin-left: 100px;}
+
+.footer-relation li{padding: 8px 10px;}
+
+.footer-relation li:nth-of-type(3){display: inline-block;}
+
+.footer-relation li:nth-of-type(4){display: inline-block;}
+
+.footer-relation li a{color: #fff;  font-size: 17px;}
+
+.footer-relation li:nth-of-type(4) a i{font-size: 24px;}
+
+.footer_copyright{margin-top: 70px; opacity: 0.5;}

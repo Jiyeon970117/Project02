@@ -1,0 +1,140 @@
+{
+    "video":[
+        {
+            "src":"https://trucknbus.hyundai.com/hydrogen/upload/mainmng/BM00200004/1-xcient-pc.mp4",
+            "type":"video/mp4",
+            "tit" :"XCIENT Fuel Cell",
+            "tit2" :"The World’s First Mass-Produced<br> Heavy-Duty Fuel Cell Truck"
+
+        },
+        {
+            "src":"https://trucknbus.hyundai.com/hydrogen/upload/mainmng/BM00200010/2-hletter-pc.mp4",
+            "type":"video/mp4",
+            "tit" :"A Present-Day Reality",
+            "tit2" :"수소 사회를 향한 한 걸음"
+
+        },
+        {
+            "src":"https://trucknbus.hyundai.com/hydrogen/upload/mainmng/BM00200011/3-neptune-pc.mp4",
+            "type":"video/mp4",
+            "tit" : "Mobility Vision",
+            "tit2" :""
+
+        }
+    ],
+
+    "con2" : [
+        {
+            "img":"img/m-1-hv-01.jpg",
+            "tit":"엑시언트<br>수소전기트럭"
+        },
+        {
+            "img":"img/m-1-hv-02.jpg",
+            "tit":"HDC-6<br>넵튠"
+        },
+        {
+            "img":"img/m-1-hv-03.jpg",
+            "tit":"일렉시티<br>수소전기버스"
+        },
+        {
+            "img":"img/m-1-hv-01.jpg",
+            "tit":"엑시언트<br>수소전기트럭"
+        },
+        {
+            "img":"img/m-1-hv-02.jpg",
+            "tit":"HDC-6<br>넵튠"
+        },
+        {
+            "img":"img/m-1-hv-03.jpg",
+            "tit":"일렉시티<br>수소전기버스"
+        },
+        {
+            "img":"img/m-1-hv-01.jpg",
+            "tit":"엑시언트<br>수소전기트럭"
+        },
+        {
+            "img":"img/m-1-hv-02.jpg",
+            "tit":"HDC-6<br>넵튠"
+        },
+        {
+            "img":"img/m-1-hv-03.jpg",
+            "tit":"일렉시티<br>수소전기버스"
+        }
+    ],
+
+    "con3" : [
+        {
+            "img":"./img/m-1-hm-012-pc.jpg",
+            "tit":"Hyundai x BTS",
+            "info":"현대자동차와 BTS는 지속 가능한 내일을 위한 열정으로 <br> 우리 지구의 아름다움을 보호하는데 앞장서고 있습니다."
+        },
+
+        {
+            "img":"./img/m-1-hm-02-pc.jpg",
+            "tit":"다가오는 미래, 수소전기차",
+            "info":"궁극의 친환경 상용차, 수소전기차를 소개합니다"
+        },
+
+        {
+            "img":"./img/m-1-hm-03-pc.jpg",
+            "tit":"H2U :<br> Hydrogen to You",
+            "info":"현대자동차는 H2U캠페인을 통해 지속 가능한 라이프스타일 뿐만 아니라 문화창작가와 테크 인플루언서를 함께 축하하고 소개합니다"
+        }
+
+    ],
+
+    "con4":[
+        {"img":"img/img_hyundaixbts_1.jpg"},
+        {"img":"img/img_hyundaixbts_2.jpg"},
+        {"img":"img/img_hyundaixbts_3.jpg"},
+        {"img":"img/img_hyundaixbts_4.jpg"},
+        {"img":"img/img_hyundaixbts_5.jpg"},
+        {"img":"img/img_hyundaixbts_6.jpg"},
+        {"img":"img/img_hyundaixbts_7.jpg"}
+    ],
+
+    "con5":[
+        {
+            "img":"img/list_hyundaixbts_1.jpg",
+            "img2":"img/list_hyundaixbts_1_1.jpg",
+            "tit":"Emerald  <br> ocean"
+        },
+        {
+            "img":"img/list_hyundaixbts_2.jpg",
+            "img2":"img/list_hyundaixbts_2_1.jpg",
+            "tit":"Pure <br> white"
+
+
+        },
+        {
+            "img":"img/list_hyundaixbts_3.jpg",
+            "img2":"img/list_hyundaixbts_3_1.jpg",
+            "tit":"Sky blue"
+
+        },
+        {
+            "img":"img/list_hyundaixbts_4.jpg",
+            "img2":"img/list_hyundaixbts_4_1.jpg",
+            "tit":"Sun <br> kissed "
+
+        },
+        {
+            "img":"img/list_hyundaixbts_5.jpg",
+            "img2":"img/list_hyundaixbts_5_1.jpg",
+            "tit":"Crystalline <br> raindrop"
+
+        },
+        {
+            "img":"img/list_hyundaixbts_6.jpg",
+            "img2":"img/list_hyundaixbts_6_1.jpg",
+            "tit":"Starlit"
+
+        },
+        {
+            "img":"img/list_hyundaixbts_7.jpg",
+            "img2":"img/list_hyundaixbts_7_1.jpg",
+            "tit":"Woody <br> fresh"
+        }
+    ]
+
+}
