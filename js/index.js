@@ -267,6 +267,15 @@ function result(){
         con3li[0].classList.add('active');
         console.log(con3li)
 
+        // html이동
+        con3li[0].addEventListener('click',function(){
+            newPage();
+        })
+
+        function newPage(){
+            location.href = 'sub.html';
+        }
+
         for(let i=0; i<con3Btn.length; i++){
             con3Btn[i].addEventListener('click',function(){
                 con3li[num].classList.remove('active');

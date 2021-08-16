@@ -149,10 +149,31 @@ function init(){
                 });
             }
 
+            // 유튜브
+            const videoBox = document.querySelector('.videobox');
+            const videoImg = document.querySelector('.video_con2 img');
+            const Btnclose = document.querySelector('.btn-close');
+            console.log(videoImg);
+            videoImg.addEventListener('click',function(){
+                videoBox.style = 'display:block';
+            });
+            // 유튜브 닫기 버튼
+            Btnclose.addEventListener('click',function(){
+                videoBox.style = 'display:none';
+            });
+
+
+
+
 
             // 스크롤이벤트로 화면 나타내기
+
+            const elImg = document.querySelectorAll('article');
+            let elHei;
+            let winHei = window.innerHeight;
+
             window.addEventListener('scroll',function(){
-                for(let i=0; i<elImg.length; i++){
+                for(let i=1; i<4; i++){
                     elHei = elImg[i].offsetTop;
 
                     if(elHei-winHei <= window.scrollY){

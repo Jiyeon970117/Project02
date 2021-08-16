@@ -130,17 +130,23 @@ video{
 .content1 .title h2{
     font-size: 72px;
     color: #222;
+    transition: .3s;
 }
 .content1 .title h4{
     font-size: 32px; color: #222;
     margin-top: 35px;
+    transition: .5s;
 }
-.content1 .title p{font-size: 22px; color: #444;}
+.content1 .title p{
+    font-size: 22px; color: #444;
+    transition: .7s;
+}
 
 /* 줌효과 */
 .content1 .bts_box{
     width: 80%;
     margin: 80px auto 0;
+    transition: 1.1s;
 }
 .bts_box li{display: none;}
 .bts_box li.active{display: list-item;}
@@ -187,6 +193,7 @@ video{
 .content2 .tit_con1 h2{
     font-size: 56px;
     color: #222;
+    transition: .5s;
 }
 
 .content2 .tit_con1 > p:nth-of-type(1){margin-top: 40px;}
@@ -195,12 +202,14 @@ video{
     color: #444;
     font-size: 18px;
     line-height: 2;
+    transition: .7s;
 }
 
 
 .content2 .tit_con2{ 
     margin-top: 80px;
     overflow: hidden;
+    transition: .9s;
 }
 .content2 .tit_con2 ul{
     width: 85%;
@@ -273,8 +282,9 @@ video{
 .content3 .con1 h2{
     font-size: 56px;
     margin-bottom: 40px;
+    transition: .3s;
 }
-.content3 .con1 p{line-height: 1.8;}
+.content3 .con1 p{line-height: 1.8; transition: .5s;}
 
 .content3 .video_con2{
     width: 80%;
@@ -286,14 +296,64 @@ video{
     width: 85%;
     margin: 0 auto;
     overflow: hidden;
+    transition: .7s;
 }
+.content3 .video_con2 figure:hover{cursor: pointer;}
 
 .content3 .video_con2 figure img{width: 100%;}
 .content3 .video_con2 figure img:hover{
     transform: scale(1.1);
     transition: all .7s ease-in-out;
 }
+/* bts-비디오 */
+.content3 .videobox{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0; top: 0;
+    z-index: 200;
+    display: none;
+}
+.content3 .video_con1{
+    width: 100%; height: 100%;
+    margin: 0 auto;
+    background: #000;
+    padding: 56.25% 0 0 0;
+    position: relative;
+}
+.content3 .video_con1 .target{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 100%;
+    border: 0;
+}
 
+/* 유튜브 비디오 */
+.video_btn .btn-close{
+    width: 80px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    top: 80px; right: 30px;
+    border: none;
+    background: none;
+}
+
+.video_btn .btn-close::before, .video_btn .btn-close::after{
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.video_btn .btn-close::before{transform: translate(-50%, -50%) rotate( 495deg ); margin: 0;}
+.video_btn .btn-close::after{transform: translate(-50%, -50%) rotate( 405deg ); margin: 0;}
 
 /* bts-비디오아이콘 */
 .content3 .video_con2 figure i{
@@ -307,13 +367,14 @@ video{
 
 .content3 > p{
     line-height: 1.8;
+    transition: 1.1s;
 }
 .content3 .con3{
     width: 95%;
     margin: 80px auto;
 }
 
-.content3 .con3 figure{width: 100%;}
+.content3 .con3 figure{width: 100%; transition: 1.3s;}
 
 .content3 .con3 figure img{width: 100%;}
 
@@ -338,6 +399,7 @@ video{
     text-align: left;
     width: 70%;
     margin-left: auto;
+    transition: 1.5s;
 
 }
 .content3 .con4 ul li p{
@@ -349,7 +411,7 @@ video{
     width: 70%;
     margin-left: auto;
     margin-top: 20px;
-
+    transition: 1.7s;
 }
 .content3 .con4 ul li:nth-of-type(1) p::after{
     content: 'ㄱ';
@@ -393,60 +455,48 @@ video{
 }
 .sns-icon div a i{font-size: 16px;}
 
-
-
 /* 푸터 */
-footer{
-    background: #002c5f;
-    color: #fff;
-}
-.footer_inner{
-    width: 95%;
-    padding: 80px 0 120px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-}
-.footer_logo{
-    width: 225px;
-    height: 50px;
-    background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_footer.svg) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-.footer_logo a{display: block; padding-top: 50px;}
+.footer_inner{padding: 80px 0 100px;}
 
-.footer_info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.footer_box{
-    width: 660px;
-    display: flex;
-    justify-content: center;
-}
-.footer-list{width: 250px;}
-.footer-list li{}
-.footer-list li:nth-of-type(2){margin-top: 15px;}
-.footer-list li a{
-    color: #fff;
-    font-size: 17px;
-    font-weight: 600;
-}
 
-.footer-relation{width: 350px; margin-left: 100px;}
 
-.footer-relation li{padding: 8px 10px;}
+/* content 스크롤이벤트 */
 
-.footer-relation li:nth-of-type(3){display: inline-block;}
+/* content1 */
+.content1 .title h2,
+.content1 .title h4,
+.content1 .title p,
+.content1 .bts_box,
+/* content2 */
+.content2 .tit_con1 h2,
+.content2 .tit_con1 > p,
+.content2 .tit_con2,
+/* content3 */
+.content3 .con1 h2,
+.content3 .con1 p,
+.content3 .video_con2 figure,
+.content3 > p,
+.content3 .con3 figure,
+.content3 .con4 ul li h4,
+.content3 .con4 ul li 
+{opacity: 0; transform: translateY(80px);}
 
-.footer-relation li:nth-of-type(4){display: inline-block;}
+.content1.active .title h2,
+.content1.active .title h4,
+.content1.active .title p,
+.content1.active .bts_box,
+/* content2 */
+.content2.active  .tit_con1 h2,
+.content2.active  .tit_con1 > p,
+.content2.active  .tit_con2,
+/* content3 */
+.content3.active .con1 h2,
+.content3.active .con1 p,
+.content3.active .video_con2 figure,
+.content3.active > p,
+.content3.active .con3 figure,
+.content3.active .con4 ul li h4,
+.content3.active .con4 ul li 
+{opacity: 1; transform: translateY(0);}
 
-.footer-relation li a{color: #fff;  font-size: 17px;}
-
-.footer-relation li:nth-of-type(4) a i{font-size: 24px;}
-
-.footer_copyright{margin-top: 70px; opacity: 0.5;}
-
+    
