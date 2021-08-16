@@ -119,14 +119,11 @@ function result(){
     const vBox = document.querySelector('.box');
     let xhr, res,tagList='';
     xhr = new XMLHttpRequest();
-    xhr.open('get','../js/data.json');
+    xhr.open('get','./js/data.json');
     xhr.send(null);
     xhr.onload = function(){
         res = JSON.parse(xhr.responseText);
     
-        // window.addEventListener('mousewheel',function(){
-        // })        
-
 
 
 
@@ -298,50 +295,6 @@ function result(){
         //     },100)
         // }
         // count(0,45);
-
-
-
-       
-        // let timer = setInterval(onTick,300);
-        // function onTick(){
-        //     const text = document.querySelectorAll('section > div h2');
-        //     console.log(text)
-        //     let num = 0;
-        //     for(let i = 0; i < text.length; i++){
-        //         text[num].classList.remove('active');
-        //         text[i].classList.add('active');
-
-        //         num = i; 
-        //         if(char === text.length){
-        //             complete();
-        //             return;
-        //         }    
-        //     }
-    
-        // };
-    
-        // function complete(){
-        //     clearInterval(timer);
-        //     timer = null;
-        // };
-    
-
-
-        // 숫자 증가
-        // const value = document.querySelector('.numtxt .value');
-        // let yPos = 0;
-        // let rafid;
-        // function render(){
-        //     value.innerHTML = yPos;
-        //     yPos++;
-
-        //     rafid = requestAnimationFrame(render)
-        //     if(yPos > 45){
-        //         cancelAnimationFrame(rafid)
-        //     }
-        // }
-        // render();
-    
     }
 
 }
