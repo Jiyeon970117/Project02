@@ -62,7 +62,6 @@ $(function(){
             $('.con5').addClass('active')
             $('.content5').addClass('active');
             $('.sns-icon').addClass('active');
-            console.log($('.content5 strong'))
         }else{
             $('.sns-icon').removeClass('active');
             $('.con5').removeClass('active')
@@ -85,6 +84,21 @@ $(function(){
         ani();
     })
 
+    // 숫자 카운터 이벤트
+    // function count(s,e){
+    //     let loop=setInterval(()=>{
+    //         if(e > s) {
+    //             s++;
+    //         }else{
+    //             clearInterval(loop)
+    //         };
+    //         console.log(s)
+    //     },100)
+    // }
+    // count(0,45);
+    // count(0,80);
+
+
 })
 
 function slide(){
@@ -101,19 +115,6 @@ function slide(){
 }
 
 
-// 숫자 카운터 이벤트
-// function count(s,e){
-//     let loop=setInterval(()=>{
-//         if(e > s) {
-//             s++;
-//         }else{
-//             clearInterval(loop)
-//         };
-//         console.log(s)
-//     },100)
-// }
-// count(0,45);
-// count(0,80);
 
 function result(){
 
@@ -250,6 +251,7 @@ function result(){
         // content3
         const con3 = document.querySelector('.content3 ul');
         const con3Btn = document.querySelectorAll('.con3-btn span');
+        con3Btn[0].classList.add('active');
         tagList = '';
         res.con3.forEach(function(v,k){
             tagList += `<li>
@@ -279,7 +281,10 @@ function result(){
         for(let i=0; i<con3Btn.length; i++){
             con3Btn[i].addEventListener('click',function(){
                 con3li[num].classList.remove('active');
+                con3Btn[num].classList.remove('active');
+
                 con3li[i].classList.add('active');
+                con3Btn[i].classList.add('active');
                 num = i;
             });
     

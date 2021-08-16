@@ -216,7 +216,7 @@ section:nth-of-type(3){
     background: #888;
     margin-left: 8px;
 }
-.content3 .con3-btn span:hover{
+.content3 .con3-btn span.active{
     width: 45px; height: 4px;
     background: #000;
     transition: .5s;
