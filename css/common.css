@@ -15,6 +15,7 @@ header{
     position: fixed;
     top: 0;
     z-index: 10;
+    transition: .5s;
 }
 .navbar{
     width: 95%;
@@ -38,7 +39,7 @@ header{
     height: 50px;
 }
 
-/* 헤더 스크롤 이벤트 */
+/* navbar 스크롤 이벤트 */
 .navbar.active .logo a{background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo.svg) no-repeat;}
 .navbar.active .leng li a{color: #000;}
 .navbar.active .leng li a:hover{color: #35719e;}

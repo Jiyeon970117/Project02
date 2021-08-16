@@ -101,6 +101,7 @@ function slide(){
 }
 
 
+// 숫자 카운터 이벤트
 // function count(s,e){
 //     let loop=setInterval(()=>{
 //         if(e > s) {
@@ -294,7 +295,7 @@ function result(){
         //         console.log(s)
         //     },100)
         // }
-        // count(0,45);
+        // count(0,45);    
     }
 
 }

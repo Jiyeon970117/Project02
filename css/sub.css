@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+@import url(common.css);
+
 *{
     margin: 0;
     padding: 0;
@@ -27,29 +29,24 @@ header{
     position: fixed;
     top: 0;
     z-index: 100;
+    transition: .5s;
 }
-header.active{border-bottom: 1px solid #ddd;}
-header.active .navbar{padding: 8px 12px;}
-header.active .logo a{background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_1.svg);}
+
+/* 헤더 스크롤 이벤트 */
+header.active{border-bottom: 1px solid #ddd; background: #fff;}
+header.active .navbar{padding: 8px 12px; align-items: center;}
+header.active .logo a{
+    width: 70px; margin-top: 18px;
+    background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_1.svg) no-repeat;
+}
 header.active .menu{display: flex;}
-.navbar{
-    width: 95%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10px;
-}
-.logo{font-size: 50px;}
-.logo a{
-    display: block;
-    padding-top: 50px;
-    background: url(https://trucknbus.hyundai.com/hydrogen/ko/img/common/logo_white.svg) no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 225px;
-    height: 50px;
-}
+header.active .menu li:nth-child(1) a{color: #35719e;}
+
+header.active .leng li a{color: #222;}
+header.active .toggle::before,
+header.active .toggle::after{background: #222;}
+
+
 
 .menu{
     display: flex;
@@ -62,50 +59,26 @@ header.active .menu{display: flex;}
     font-size: 18px;
     color: #888;
     padding: 8px 40px;
+    position: relative;
 }
+.menu li a::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #35719e;
+    position: absolute;
+    bottom: -28px;
+    transition: .5s;
+    left: 30px; 
+}
+.menu li:nth-child(1) a::after{width: 70%;}
+.menu li:nth-child(2) a:hover:after{ left: 35px; width: 40px;}
+
 .menu li a:hover{color: #35719e;}
 .menu li.active a{color: #35719e;}
 
 
-.navbar .button{
-    display: flex; 
-    justify-content: center;
-    text-align: center;
-}
-.leng{
-    width: 80px;
-}
-.leng li{
-    display: none;
-    padding: 8px 12px;
-}
-.leng li.active{display: block;}
-
-.leng li a{
-    color: #fff;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.toggle{
-    width: 80px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    background: none;
-    border: none;
-}
-.toggle::before,
-.toggle::after{
-    content: '';
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: #fff;
-    position: absolute;
-}
-.toggle::before{top: 35%;}
-.toggle::after{bottom: 35%;}
 
 
 
@@ -243,16 +216,19 @@ video{
     position: relative;
 }
 
+
+/* 이미지 애니메이션 */
 .content2 .tit_con2 ul li figure img{width: 100%;}
 
 .content2 .tit_con2 ul li figure img:nth-child(2){
-    display: none;
+    height: 0;
     position: absolute;
     top: 0%; left: 0%;
-    transition: all .5s ease-in-out;
+    transition: all .7s ease-in-out;
     transform: translateY(-100%);
 }
-.content2 .tit_con2 ul li figure img:nth-child(2).active{transform: translateY(0); display: block;}
+.content2 .tit_con2 ul li figure img:nth-child(2).active{transform: translateY(0); height: 100%;}
+
 
 .content2 .tit_con2 ul li figure figcaption{
     font-size: 56px;
@@ -402,6 +378,7 @@ video{
     bottom: 0; right: -5%;
     background: #fff;
     display: none;
+    transition: .5s;
 }
 .sns-icon div.active{
     display: flex; right: 0;
