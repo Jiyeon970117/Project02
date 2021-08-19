@@ -108,7 +108,6 @@ $(function(){
         },200)
     }
 
-    // count(0,45);
     // count(0,80);
 
     // function count(){
@@ -257,6 +256,25 @@ function result(){
 
 
 
+    
+        // content2
+        tagList = '';
+        const con2 = document.querySelector('.content2 .con1 ul')
+        res.con2.forEach(function(v,k){
+            tagList += `<li>
+                            <figure>
+                                <img src = ${v.img}>
+                            </figure>
+                            <p>
+                            <strong>
+                                ${v.tit}
+                            </strong>
+                            </p>
+                        </li>`
+        });
+        con2.innerHTML = tagList;
+        slide();
+
         const content2 = document.querySelectorAll('.con1 li figure img');
         console.log(content2)
         
@@ -270,24 +288,7 @@ function result(){
             });
 
         }
-    
-        // content2
-        tagList = '';
-        const con2 = document.querySelector('.content2 .con1 ul')
-        res.con2.forEach(function(v,k){
-            tagList += `<li>
-                            <figure>
-                                <img src = ${v.img}>
-                                <figcaption>
-                                    <strong>
-                                        ${v.tit}
-                                    </strong>
-                                </figcaption>
-                            </figure>
-                        </li>`
-        });
-        con2.innerHTML = tagList;
-        slide();
+
 
         // content3
         const con3 = document.querySelector('.content3 ul');
@@ -332,12 +333,15 @@ function result(){
         }
 
         // 커스텀커서
+        let Header = document.querySelector('header');
+        let Menu = document.querySelector('.main_menu');
         let mouseCursor = document.querySelector('.cursor');
+        let con3_1 = document.querySelectorAll('.content3 ul figure');
         const videoBicon = document.querySelectorAll('.video_btn ul li')
         const con2Li = document.querySelectorAll('.content2 .con1 ul li')
-        const info = document.querySelector('.content3 ul li div')
+        const info = document.querySelectorAll('.content3 ul li div')
         const con4 = document.querySelectorAll('.content4 ul li')
-        console.log(con4)
+        console.log(Menu)
         window.addEventListener('mousemove',cursor)
 
         
@@ -346,10 +350,42 @@ function result(){
             mouseCursor.style.left = e.pageX + 'px';
         }
         
+
+        // section1
+
+        //menu
+        Menu.addEventListener('mousemove',function(){
+            document.querySelector('body').style = 'cursor: default';
+            mouseCursor.style = 'display: none';
+        })
+        Menu.addEventListener('mouseout',function(){
+            document.querySelector('body').style = 'cursor: none';
+            mouseCursor.style = 'display: flex';
+            mouseCursor.textContent = 'PREV';
+        })
+
+        //video txt
+        txtBox.forEach(link => {
+
+            link.addEventListener('mouseout',function(){
+                mouseCursor.style = 'display: flex'
+                document.querySelector('body').style = 'cursor: none';
+                mouseCursor.textContent = 'PREV';
+
+            })
+
+            link.addEventListener('mousemove',function(){
+                mouseCursor.style = 'display: flex'
+                document.querySelector('body').style = 'cursor: none';
+                mouseCursor.textContent = 'DISCOVER MORE';
+            })
+        });
+
+
+        //video-icon
         videoBicon.forEach(link => {
 
             link.addEventListener('mouseout',function(){
-                mouseCursor.classList.add('cursor2');
                 mouseCursor.textContent = 'PREV';
                 document.querySelector('body').style = 'cursor: none';
                 mouseCursor.style = 'display: flex';
@@ -362,38 +398,80 @@ function result(){
 
         });
 
+        // section2 
         con2Li.forEach(link => {
 
             link.addEventListener('mouseout',function(){
-                mouseCursor.classList.remove('cursor2');
-                mouseCursor.textContent = 'PREV';
+                mouseCursor.style = 'display: none';
+                document.querySelector('body').style = 'cursor: default';
             })
 
             link.addEventListener('mousemove',function(){
-                mouseCursor.classList.add('cursor2');
                 mouseCursor.textContent = 'DISCOVER MORE';
+                mouseCursor.style = 'display: flex';
+                document.querySelector('body').style = 'cursor: none';
             })
         });
-        info.addEventListener('mousemove',function(){
-            mouseCursor.classList.add('cursor2');
-            mouseCursor.textContent = 'DISCOVER MORE';
-        })
-        info.addEventListener('mouseout',function(){
-            mouseCursor.classList.remove('cursor2');
-            mouseCursor.textContent = 'PREV';
-        })
+
+        // section4
         con4.forEach(link => {
 
             link.addEventListener('mouseout',function(){
-                mouseCursor.classList.remove('cursor2');
-                mouseCursor.textContent = 'PREV';
+                mouseCursor.style = 'display: none';
+                document.querySelector('body').style = 'cursor: default';
             })
 
             link.addEventListener('mousemove',function(){
-                mouseCursor.classList.add('cursor2');
+                mouseCursor.textContent = 'DISCOVER MORE';
+                mouseCursor.style = 'display: flex';
+                document.querySelector('body').style = 'cursor: none';
+            })
+        });
+
+        //header 커스텀 커서 제거
+        Header.addEventListener('mousemove',function(){
+            mouseCursor.style = 'display: none'
+        });
+        Header.addEventListener('mouseout',function(){
+            mouseCursor.style = 'display: flex'
+        });
+        
+        //버튼 커스텀 커서 제거(section3)
+        con3_1.forEach(link => {
+
+            link.addEventListener('mouseout',function(){
+                mouseCursor.style = 'display: none';
+                document.querySelector('body').style = 'cursor: default';
+
+            })
+
+            link.addEventListener('mousemove',function(){
+                mouseCursor.style = 'display: flex'
+                document.querySelector('body').style = 'cursor: none';
+                mouseCursor.textContent = 'PREV';
+            })
+        });
+
+
+        info.forEach(link => {
+
+            link.addEventListener('mouseout',function(){
+                mouseCursor.style = 'display: none';
+                document.querySelector('body').style = 'cursor: default';
+
+            })
+
+            link.addEventListener('mousemove',function(){
+                mouseCursor.style = 'display: flex'
+                document.querySelector('body').style = 'cursor: none';
                 mouseCursor.textContent = 'DISCOVER MORE';
             })
         });
+
+
+
+
+
 
 
 

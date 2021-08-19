@@ -24,9 +24,6 @@ main{
     font: 18px;
     color: #000;
 }
-.cursor2{
-    font: 18px;
-}
 
 /* body.active{cursor: none;} */
 /* body.active.cursor{display: block;} */
@@ -190,6 +187,7 @@ video{
 .con1 ul li figure{
     width: 400px; height: 470px; 
     opacity: 0;
+    overflow: hidden;
     transform: translateY(100%);
     transition: .5s;
 }
@@ -198,12 +196,14 @@ video{
     transform: translateY(0);
 }
 .con1 ul li figure img{width: 100%;}
-.con1 ul li figure figcaption{ 
+.con1 ul li p{ 
     text-align: left;
+    padding-top: 10px;
+    padding-left: 20px;
 }
-.con1 ul li figure figcaption strong{
-    font-weight: 600;
-    font-size: 44px;
+.con1 ul li p strong{
+    font-weight: 700;
+    font-size: 40px;
 } 
 .slick-slide {transition:.5s;}
 .slick-current + li{
@@ -532,6 +532,7 @@ section:nth-child(5){
 
 /* 메뉴아이콘 */
 .main_menu{
+    width: 150px;
     position: fixed;
     left: 5%; top: 50%;
     transform: translateY(-50%);
