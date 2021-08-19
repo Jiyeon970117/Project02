@@ -17,21 +17,34 @@ $(function(){
             ani();
         },100);
     });
+
+
+    
+    
     function ani(){
 
         if( num == 5  ){
             posTop = -$('.scroll').eq(num).position().top + ($(window).height() - $('footer').height())
             $('.main_menu a').css({display: `none`});
             $('.main_menu span').css({display: `none`});
+            //cursor event
+            $('.cursor').css("display", "none");    
+            $('body').css("cursor", "default"); 
         }else{
             posTop = -$('.scroll').eq(num).position().top;
             $('.main_menu a').css({display: `inline-block`});
             $('.main_menu span').css({display: `inline-block`});
+            
+            //cursor event
+            $('.cursor').css("display", "flex");
+            $('body').css("cursor", "none"); 
             // 상단 메뉴 고정
             if(num < 4 && num > 0){
                 $('.navbar').addClass('active');
+                $('.main_menu').addClass('active');
             }else{
                 $('.navbar').removeClass('active');
+                $('.main_menu').removeClass('active');
             }
     
         }       
@@ -62,22 +75,20 @@ $(function(){
             $('.con5').addClass('active')
             $('.content5').addClass('active');
             $('.sns-icon').addClass('active');
+           count(0,45);
+
+            //cursor event
+           $('.cursor').css("display", "none");
+           $('body').css("cursor", "default");
         }else{
             $('.sns-icon').removeClass('active');
             $('.con5').removeClass('active')
         }
 
-
-
-
-
-
         $('.main_menu a').removeClass('active').eq(num).addClass('active');
         $('.main_menu span').removeClass('active').eq(num).addClass('active');
-
-        // $('section div').removeClass('animatable').eq(num).addClass('animated');
-        // $('.wrap section').removeClass('active').eq(num).addClass('active');
     }
+
 
     $('.main_menu li').on('click',function(){
         num = $(this).index();
@@ -85,18 +96,33 @@ $(function(){
     })
 
     // 숫자 카운터 이벤트
-    // function count(s,e){
-    //     let loop=setInterval(()=>{
-    //         if(e > s) {
-    //             s++;
-    //         }else{
-    //             clearInterval(loop)
-    //         };
-    //         console.log(s)
-    //     },100)
-    // }
+    function count(s,e){
+        let loop=setInterval(()=>{
+            if(e > s) {
+                s++;
+            }else{
+                clearInterval(loop)
+            };
+            // console.log(s)
+            document.querySelector('.numtxt strong').textContent = s;
+        },200)
+    }
+
     // count(0,45);
     // count(0,80);
+
+    // function count(){
+    //     const strong = document.querySelectorAll('.numtxt strong');
+    //     console.log(strong)
+    //     let seconds = 0;
+    //     let timer;
+    //     timer = setInterval(function(){
+    //         document.querySelector('.numtxt strong').textContent = seconds++;
+    //         if(seconds > 45){
+    //             clearInterval(timer)
+    //         }
+    //     }, 70);    
+    // }
 
 
 })
@@ -127,10 +153,6 @@ function result(){
         res = JSON.parse(xhr.responseText);
     
 
-
-
-    
-
         // 비디오 화면
         res.video.forEach(function(v,k) {
             tagList += `<div class = "video-box">
@@ -148,13 +170,10 @@ function result(){
         const video = document.querySelectorAll('.video-box');
         video[0].classList.add('active')
         const txtBox = document.querySelectorAll('.txt-box');
-        console.log(txtBox)
         txtBox[0].classList.add('active')
-        // const videoIcon = document.querySelectorAll('.video_btn  .video_icon > li ');
 
-        // 메뉴버튼
+        // 비디오버튼
         const videoBtn = document.querySelectorAll('.video_menu > li');
-        console.log(videoBtn)
 
         let num = 0;
         for(let i=0; i<videoBtn.length; i++){
@@ -166,6 +185,28 @@ function result(){
                 txtBox[i].classList.add('active');
             });
         }
+
+
+        // 비디오 사운드아이콘
+        const videoIcon = document.querySelectorAll('.video_icon li i:nth-child(2)') 
+        const videoIcon2 = document.querySelectorAll('.video_icon li i:nth-child(1)') 
+        let span = document.querySelector('.video_icon li span');
+        let j = 0;
+        for(let i = 0; i<videoIcon.length; i++){
+            videoIcon[i].addEventListener('click',function(){
+                videoIcon2[i].classList.add('active')
+                videoIcon[i].style = 'display: none';
+                if(i == 1){span.textContent = 'ON';}
+            })
+
+            videoIcon2[i].addEventListener('click',function(){
+                videoIcon2[i].classList.remove('active')
+                videoIcon[i].style = 'display: inline-block';
+                if(i == 1){span.textContent = 'OFF';}
+            })
+
+        }
+
 
         // 토글버튼 -언어
         const lengBtn = document.querySelector('.leng');
@@ -289,6 +330,72 @@ function result(){
             });
     
         }
+
+        // 커스텀커서
+        let mouseCursor = document.querySelector('.cursor');
+        const videoBicon = document.querySelectorAll('.video_btn ul li')
+        const con2Li = document.querySelectorAll('.content2 .con1 ul li')
+        const info = document.querySelector('.content3 ul li div')
+        const con4 = document.querySelectorAll('.content4 ul li')
+        console.log(con4)
+        window.addEventListener('mousemove',cursor)
+
+        
+        function cursor(e){
+            mouseCursor.style.top = e.pageY + 'px';
+            mouseCursor.style.left = e.pageX + 'px';
+        }
+        
+        videoBicon.forEach(link => {
+
+            link.addEventListener('mouseout',function(){
+                mouseCursor.classList.add('cursor2');
+                mouseCursor.textContent = 'PREV';
+                document.querySelector('body').style = 'cursor: none';
+                mouseCursor.style = 'display: flex';
+            })
+
+            link.addEventListener('mousemove',function(){
+                document.querySelector('body').style = 'cursor: default';
+                mouseCursor.style = 'display: none';
+            })
+
+        });
+
+        con2Li.forEach(link => {
+
+            link.addEventListener('mouseout',function(){
+                mouseCursor.classList.remove('cursor2');
+                mouseCursor.textContent = 'PREV';
+            })
+
+            link.addEventListener('mousemove',function(){
+                mouseCursor.classList.add('cursor2');
+                mouseCursor.textContent = 'DISCOVER MORE';
+            })
+        });
+        info.addEventListener('mousemove',function(){
+            mouseCursor.classList.add('cursor2');
+            mouseCursor.textContent = 'DISCOVER MORE';
+        })
+        info.addEventListener('mouseout',function(){
+            mouseCursor.classList.remove('cursor2');
+            mouseCursor.textContent = 'PREV';
+        })
+        con4.forEach(link => {
+
+            link.addEventListener('mouseout',function(){
+                mouseCursor.classList.remove('cursor2');
+                mouseCursor.textContent = 'PREV';
+            })
+
+            link.addEventListener('mousemove',function(){
+                mouseCursor.classList.add('cursor2');
+                mouseCursor.textContent = 'DISCOVER MORE';
+            })
+        });
+
+
 
 
         // setinterval(숫자 카운터)
