@@ -35,9 +35,6 @@ $(function(){
             $('.main_menu a').css({display: `inline-block`});
             $('.main_menu span').css({display: `inline-block`});
             
-            //cursor event
-            $('.cursor').css("display", "flex");
-            $('body').css("cursor", "none"); 
             // 상단 메뉴 고정
             if(num < 4 && num > 0){
                 $('.navbar').addClass('active');
@@ -75,11 +72,10 @@ $(function(){
             $('.con5').addClass('active')
             $('.content5').addClass('active');
             $('.sns-icon').addClass('active');
-           count(0,45);
-
-            //cursor event
-           $('.cursor').css("display", "none");
-           $('body').css("cursor", "default");
+           count(0,45,0);
+           count(58,108,1);
+           count(5243,5293,2);
+        
         }else{
             $('.sns-icon').removeClass('active');
             $('.con5').removeClass('active')
@@ -93,36 +89,24 @@ $(function(){
     $('.main_menu li').on('click',function(){
         num = $(this).index();
         ani();
+        $('.cursor').css("display", "none");
+        $('body').css("cursor", "default");
     })
 
     // 숫자 카운터 이벤트
-    function count(s,e){
+    const Strong = document.querySelectorAll('.numtxt strong')
+    console.log(Strong)
+    function count(s,e,n){
+        let start = s;
         let loop=setInterval(()=>{
-            if(e > s) {
-                s++;
+            if(e > start) {
+                start++;
             }else{
                 clearInterval(loop)
             };
-            // console.log(s)
-            document.querySelector('.numtxt strong').textContent = s;
-        },200)
+            Strong[n].textContent = start;
+        },50)
     }
-
-    // count(0,80);
-
-    // function count(){
-    //     const strong = document.querySelectorAll('.numtxt strong');
-    //     console.log(strong)
-    //     let seconds = 0;
-    //     let timer;
-    //     timer = setInterval(function(){
-    //         document.querySelector('.numtxt strong').textContent = seconds++;
-    //         if(seconds > 45){
-    //             clearInterval(timer)
-    //         }
-    //     }, 70);    
-    // }
-
 
 })
 
@@ -159,7 +143,7 @@ function result(){
                                 <source src =${v.src} type =${v.type} >
                             </video>
 
-                            <div class="txt-box">
+                            <div class="txt-box c-cover">
                                 <h2>${v.tit}</h2>
                                 <p>${v.tit2}</p>
                             </div>
@@ -169,21 +153,36 @@ function result(){
         const video = document.querySelectorAll('.video-box');
         video[0].classList.add('active')
         const txtBox = document.querySelectorAll('.txt-box');
-        txtBox[0].classList.add('active')
+        const txtCon = function(number){
+            txtBox[number].classList.add('active');
+        };
+        // setTimeout
+        setTimeout(function(){
+            txtCon(0)
+        }, 1500)
+        setTimeout(function(){
+            txtCon(1)
+        }, 3000)
+        setTimeout(function(){
+            txtCon(2)
+        }, 5000)
+
+
 
         // 비디오버튼
         const videoBtn = document.querySelectorAll('.video_menu > li');
-
         let num = 0;
         for(let i=0; i<videoBtn.length; i++){
             videoBtn[i].addEventListener('click',function(){
                 video[num].classList.remove('active');
-                txtBox[num].classList.remove('active');
+                // txtBox[num].classList.remove('active');
                 num = i;
                 video[i].classList.add('active');
-                txtBox[i].classList.add('active');
+                // txtBox[i].classList.add('active');
             });
         }
+
+
 
 
         // 비디오 사운드아이콘
@@ -261,7 +260,7 @@ function result(){
         tagList = '';
         const con2 = document.querySelector('.content2 .con1 ul')
         res.con2.forEach(function(v,k){
-            tagList += `<li>
+            tagList += `<li class="c-cover">
                             <figure>
                                 <img src = ${v.img}>
                             </figure>
@@ -296,11 +295,11 @@ function result(){
         con3Btn[0].classList.add('active');
         tagList = '';
         res.con3.forEach(function(v,k){
-            tagList += `<li>
+            tagList += `<li >
                             <figure>
                                 <img src=${v.img}>
                             </figure>
-                            <div class ="infotxt">
+                            <div class ="infotxt c-cover">
                                 <h4>${v.tit}</h4>
                                 <p>${v.info}</p>
                             </div>
@@ -337,164 +336,77 @@ function result(){
         let Menu = document.querySelector('.main_menu');
         let mouseCursor = document.querySelector('.cursor');
         let con3_1 = document.querySelectorAll('.content3 ul figure');
-        const videoBicon = document.querySelectorAll('.video_btn ul li')
-        const con2Li = document.querySelectorAll('.content2 .con1 ul li')
-        const info = document.querySelectorAll('.content3 ul li div')
-        const con4 = document.querySelectorAll('.content4 ul li')
-        console.log(Menu)
-        window.addEventListener('mousemove',cursor)
+        const videoBicon = document.querySelectorAll('.video_btn ul li');
+        const con2Li = document.querySelectorAll('.content2 .con1 ul li');
+        const info = document.querySelectorAll('.content3 ul li div');
+        const con4 = document.querySelectorAll('.content4 ul li');
+        const conSection = document.querySelectorAll('section');
+        console.log(conSection)
+
+        conSection.forEach(function(sec,k){
+            sec.addEventListener('mouseenter',(e)=>{
+               cursor(k,sec,e);
+               sec.addEventListener('mousemove',(e)=>{cursor(k,sec,e)})
+            });
+            sec.addEventListener('mouseleave',(e)=>{
+               dis = 'display: none';
+               sec.addEventListener('mousemove',(e)=>{cursor(k,sec,e)})
+            });
+        })
 
         
-        function cursor(e){
+        let dis,sty,txt,target;
+        function cursor(k,select,e){    
+            dis = 'display: flex';
+            sty = 'cursor: none';
+
+            target = e.target;
+            try{
+                for(;!target.classList.contains('c-cover');target=target.parentElement);
+                if(target.classList.contains('c-cover')) {
+                    txt = 'DISCOVER MORE';
+                    dis = 'display: flex';
+                }else{
+                    dis = 'display: none';
+                }           
+            }catch{
+                if(k==0 || k==2){ 
+                    if(e.pageX > select.offsetWidth / 2){
+                        txt = 'next';
+                    }else{
+                        txt = 'prev';                
+                    }
+                }else{
+                    dis = 'display: none';
+                    sty = 'cursor: default';
+                }
+            }
+
+            mouseCursor.style = dis;
             mouseCursor.style.top = e.pageY + 'px';
             mouseCursor.style.left = e.pageX + 'px';
+
+            document.querySelector('body').style = sty;
+            mouseCursor.textContent = txt;
         }
         
 
-        // section1
-
-        //menu
-        Menu.addEventListener('mousemove',function(){
-            document.querySelector('body').style = 'cursor: default';
-            mouseCursor.style = 'display: none';
-        })
-        Menu.addEventListener('mouseout',function(){
-            document.querySelector('body').style = 'cursor: none';
-            mouseCursor.style = 'display: flex';
-            mouseCursor.textContent = 'PREV';
-        })
-
-        //video txt
-        txtBox.forEach(link => {
-
-            link.addEventListener('mouseout',function(){
-                mouseCursor.style = 'display: flex'
-                document.querySelector('body').style = 'cursor: none';
-                mouseCursor.textContent = 'PREV';
-
-            })
-
-            link.addEventListener('mousemove',function(){
-                mouseCursor.style = 'display: flex'
-                document.querySelector('body').style = 'cursor: none';
-                mouseCursor.textContent = 'DISCOVER MORE';
-            })
-        });
-
-
-        //video-icon
-        videoBicon.forEach(link => {
-
-            link.addEventListener('mouseout',function(){
-                mouseCursor.textContent = 'PREV';
-                document.querySelector('body').style = 'cursor: none';
-                mouseCursor.style = 'display: flex';
-            })
-
-            link.addEventListener('mousemove',function(){
-                document.querySelector('body').style = 'cursor: default';
-                mouseCursor.style = 'display: none';
-            })
-
-        });
-
-        // section2 
-        con2Li.forEach(link => {
-
-            link.addEventListener('mouseout',function(){
-                mouseCursor.style = 'display: none';
-                document.querySelector('body').style = 'cursor: default';
-            })
-
-            link.addEventListener('mousemove',function(){
-                mouseCursor.textContent = 'DISCOVER MORE';
-                mouseCursor.style = 'display: flex';
-                document.querySelector('body').style = 'cursor: none';
-            })
-        });
-
-        // section4
-        con4.forEach(link => {
-
-            link.addEventListener('mouseout',function(){
-                mouseCursor.style = 'display: none';
-                document.querySelector('body').style = 'cursor: default';
-            })
-
-            link.addEventListener('mousemove',function(){
-                mouseCursor.textContent = 'DISCOVER MORE';
-                mouseCursor.style = 'display: flex';
-                document.querySelector('body').style = 'cursor: none';
-            })
-        });
+        //menu 커스텀 커서 제거
+        mouse(Menu);
 
         //header 커스텀 커서 제거
-        Header.addEventListener('mousemove',function(){
-            mouseCursor.style = 'display: none'
-        });
-        Header.addEventListener('mouseout',function(){
-            mouseCursor.style = 'display: flex'
-        });
-        
-        //버튼 커스텀 커서 제거(section3)
-        con3_1.forEach(link => {
+        mouse(Header);
 
-            link.addEventListener('mouseout',function(){
-                mouseCursor.style = 'display: none';
-                document.querySelector('body').style = 'cursor: default';
-
-            })
-
-            link.addEventListener('mousemove',function(){
-                mouseCursor.style = 'display: flex'
-                document.querySelector('body').style = 'cursor: none';
-                mouseCursor.textContent = 'PREV';
-            })
-        });
+        //videoicon 커스텀 커서 제거
 
 
-        info.forEach(link => {
+        function mouse(x){
+           return   x.addEventListener('mousemove',function(){
+                        document.querySelector('body').style = 'cursor: default';
+                        mouseCursor.style = 'display: none';
+                    });
+        }
 
-            link.addEventListener('mouseout',function(){
-                mouseCursor.style = 'display: none';
-                document.querySelector('body').style = 'cursor: default';
-
-            })
-
-            link.addEventListener('mousemove',function(){
-                mouseCursor.style = 'display: flex'
-                document.querySelector('body').style = 'cursor: none';
-                mouseCursor.textContent = 'DISCOVER MORE';
-            })
-        });
-
-
-
-
-
-
-
-
-
-        // setinterval(숫자 카운터)
-
-        // const value = document.querySelectorAll('.content5 ul li strong');
-        // console.log(value)
-        // for(let i=0; i<value.length; i++){
-        //     value[i].textContent = count(0,45)
-        // }
-
-        // function count(s,e){
-        //     let loop=setInterval(()=>{
-        //         if(e > s) {
-        //             s++;
-        //         }else{
-        //             clearInterval(loop)
-        //         };
-        //         console.log(s)
-        //     },100)
-        // }
-        // count(0,45);    
     }
 
 }

@@ -33,6 +33,42 @@ function init(){
     xhr.onload = function(){
         res = JSON.parse(xhr.responseText);
 
+
+
+        // 비디오 사운드아이콘 & 비디오 재생 및 오디오 컨트롤
+        const myvideo = document.querySelector('video');
+        const videoIcon = document.querySelectorAll('.video_icon li i:nth-child(2)') //정지, 소리끔 이모티콘
+        const videoIcon2 = document.querySelectorAll('.video_icon li i:nth-child(1)') 
+        let span = document.querySelector('.video_icon li span');
+        let j = 0;
+        for(let i = 0; i<videoIcon.length; i++){
+            videoIcon[i].addEventListener('click',function(){
+                videoIcon2[i].classList.add('active')
+                videoIcon[i].style = 'display: none';
+                if(i == 1){
+                    span.textContent = 'ON';
+                    myaudio.play()
+                }else{
+                    myaudio.pause()
+                    myvideo.pause()
+                }
+            })
+
+            videoIcon2[i].addEventListener('click',function(){
+                videoIcon2[i].classList.remove('active')
+                videoIcon[i].style = 'display: inline-block';
+                if(i == 1){
+                    span.textContent = 'OFF';
+                    myaudio.pause()
+                }else{
+                    myvideo.play()
+                    myaudio.play()
+                }
+            })
+
+        }
+
+        
         // 토글버튼 -언어
         const lengBtn = document.querySelector('.leng');
         const leng = document.querySelectorAll('.leng li');

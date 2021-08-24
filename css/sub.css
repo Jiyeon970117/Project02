@@ -102,7 +102,7 @@ video{
     position: absolute;
     bottom: 5%; left: 50%;
     transform: translateX(-50%);
-    margin-left: 30px;
+    /* margin-left: 30px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,6 +113,9 @@ video{
     font-size: 8px;
     color: #fff;
 }
+.video_icon .fa-play, .video_icon .fa-volume-up{display: none;}
+.video_icon .fa-play.active, .video_icon .fa-volume-up.active{display: inline-block;}
+
 
 /* 컨텐츠1 */
 .content1{}
