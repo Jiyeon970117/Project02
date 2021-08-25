@@ -142,6 +142,7 @@ function result(){
                             <video autoplay muted loop>
                                 <source src =${v.src} type =${v.type} >
                             </video>
+                            <audio src =${v.audio} class = "myaudio"></audio>
 
                             <div class="txt-box c-cover">
                                 <h2>${v.tit}</h2>
@@ -171,36 +172,47 @@ function result(){
 
         // 비디오버튼
         const videoBtn = document.querySelectorAll('.video_menu > li');
+        const myvideo = document.querySelectorAll('video');
+        const myaudio = document.querySelectorAll('.myaudio');
         let num = 0;
         for(let i=0; i<videoBtn.length; i++){
             videoBtn[i].addEventListener('click',function(){
                 video[num].classList.remove('active');
-                // txtBox[num].classList.remove('active');
-                num = i;
                 video[i].classList.add('active');
-                // txtBox[i].classList.add('active');
+                num = i;
+                myaudio[i]
             });
         }
 
 
-
-
         // 비디오 사운드아이콘
-        const videoIcon = document.querySelectorAll('.video_icon li i:nth-child(2)') 
-        const videoIcon2 = document.querySelectorAll('.video_icon li i:nth-child(1)') 
+        const videoIcon = document.querySelectorAll('.video_icon li i:nth-child(2)');
+        const videoIcon2 = document.querySelectorAll('.video_icon li i:nth-child(1)'); 
         let span = document.querySelector('.video_icon li span');
         let j = 0;
         for(let i = 0; i<videoIcon.length; i++){
             videoIcon[i].addEventListener('click',function(){
                 videoIcon2[i].classList.add('active')
                 videoIcon[i].style = 'display: none';
-                if(i == 1){span.textContent = 'ON';}
+                if(i == 1){
+                    span.textContent = 'ON';
+                        // myaudio.play()
+                }else{
+                        // myaudio.pause()
+                        // myvideo.pause()
+                }
             })
 
             videoIcon2[i].addEventListener('click',function(){
                 videoIcon2[i].classList.remove('active')
                 videoIcon[i].style = 'display: inline-block';
-                if(i == 1){span.textContent = 'OFF';}
+                if(i == 1){
+                    span.textContent = 'OFF';
+                        // myaudio.pause()
+                }else{
+                        // myaudio.play()
+                        // myvideo.play()
+                }
             })
 
         }
@@ -336,7 +348,8 @@ function result(){
         let Menu = document.querySelector('.main_menu');
         let mouseCursor = document.querySelector('.cursor');
         let con3_1 = document.querySelectorAll('.content3 ul figure');
-        const videoBicon = document.querySelectorAll('.video_btn ul li');
+        const videoiconBtn = document.querySelector('.video_btn');
+        console.log(videoiconBtn)
         const con2Li = document.querySelectorAll('.content2 .con1 ul li');
         const info = document.querySelectorAll('.content3 ul li div');
         const con4 = document.querySelectorAll('.content4 ul li');
@@ -397,8 +410,7 @@ function result(){
         //header 커스텀 커서 제거
         mouse(Header);
 
-        //videoicon 커스텀 커서 제거
-
+        //videoicon 커스텀 커서 제거        
 
         function mouse(x){
            return   x.addEventListener('mousemove',function(){

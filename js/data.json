@@ -1,22 +1,25 @@
 {
     "video":[
         {
-            "src":"https://trucknbus.hyundai.com/hydrogen/upload/mainmng/BM00200004/1-xcient-pc.mp4",
+            "src":"video/1-xcient-pc.mp4",
             "type":"video/mp4",
+            "audio":"video/1-xcient-pc.mp3",
             "tit" :"XCIENT Fuel Cell",
             "tit2" :"The World’s First Mass-Produced<br> Heavy-Duty Fuel Cell Truck"
 
         },
         {
-            "src":"https://trucknbus.hyundai.com/hydrogen/upload/mainmng/BM00200010/2-hletter-pc.mp4",
+            "src":"video/2-hletter-pc.mp4",
             "type":"video/mp4",
+            "audio":"video/2-hletter-pc.mp3",
             "tit" :"A Present-Day Reality",
             "tit2" :"수소 사회를 향한 한 걸음"
 
         },
         {
-            "src":"https://trucknbus.hyundai.com/hydrogen/upload/mainmng/BM00200011/3-neptune-pc.mp4",
+            "src":"video/3-neptune-pc.mp4",
             "type":"video/mp4",
+            "audio":"video/3-neptune-pc.mp3",
             "tit" : "Mobility Vision",
             "tit2" :""
 

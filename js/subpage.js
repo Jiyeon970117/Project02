@@ -116,6 +116,23 @@ function init(){
             });
         }
         
+        //Top버튼
+        const docElem = document.documentElement
+        Topbtn.addEventListener('click',function(ev){
+            ev.preventDefault(); // 링크 본연의 기능 막기
+            scrollTopBtn();
+            // docElem.scrollTop =0;
+        })
+
+        function scrollTopBtn(){
+            let scrollInterval = setInterval(function(){
+                if(docElem.scrollTop != 0){
+                    window.scrollBy(0,-55);
+                }else{
+                    clearInterval(scrollInterval)
+                }
+            },5)
+        }
         
         
         res.con4.forEach(function(v,k){
@@ -172,7 +189,6 @@ function init(){
             const con2Box = document.querySelectorAll('.tit_con2 figure');
             const con2Fig = document.querySelectorAll('.tit_con2 figure img:nth-child(1)');
             const con2Img = document.querySelectorAll('.tit_con2 figure img:nth-child(2)');
-            console.log(con2Box)
 
             // 이미지 이벤트
             for(let i=0; i<con2Fig.length; i++){
@@ -185,18 +201,43 @@ function init(){
                 });
             }
 
+
+            // 버튼 이벤트(이미지 넘기기)
+            let z=0;            
+            for(let i=0; i<titCon3.length; i++){
+                titCon3[i].addEventListener('click',function(){
+                    titCon3[z].classList.remove('active')
+                    titCon3[i].classList.add('active')
+                    z = i;
+                });
+            }
+
+
             // 유튜브
             const videoBox = document.querySelector('.videobox');
             const videoImg = document.querySelector('.video_con2 img');
+            const Btnopen = document.querySelector('.video_con2 i');
             const Btnclose = document.querySelector('.btn-close');
-            console.log(videoImg);
+            // console.log(Btnopen);
             videoImg.addEventListener('click',function(){
                 videoBox.style = 'display:block';
             });
+
             // 유튜브 닫기 버튼
             Btnclose.addEventListener('click',function(){
-                videoBox.style = 'display:none';
+                videoBox.style = 'display:none ';
             });
+            
+            // 사진(videoImg) 줌이벤트
+            videoImg.addEventListener('mousemove',function(){
+                videoImg.style = 'transform: scale(1.05); transition: all .7s ease-in-out';
+                Btnopen.classList.add('active');
+            });
+            videoImg.addEventListener('mouseout',function(){
+                videoImg.style = 'transform: scale(1);  transition: all .7s ease-in-out';
+                Btnopen.classList.remove('active');
+            });
+
 
 
 
@@ -218,35 +259,16 @@ function init(){
                 }
             })
 
+            // 줌이벤트
+            for(let j=0; j<Zoom.length; j++){
+                Zoom[j].addEventListener('mousemove',function(){
+                    Zoom[j].style = 'transform: scale(1.05);  transition: all .7s ease-in-out';
+                });
 
-
-
-            // 버튼 이벤트(이미지 넘기기)
-            // let num=0;            
-            // for(let i=0; i<titCon3.length; i++){
-            //     titCon3.addEventListener('click',function(){
-            //         con2Fig[num].classList.remove('active')
-            //         btsBtn[num].classList.remove('active')
-            //     });
-            // }
-    
-
-
-
-
-
-
-        // 줌이벤트
-        for(let j=0; j<Zoom.length; j++){
-            Zoom[j].addEventListener('mousemove',function(){
-                Zoom[j].style = 'transform: scale(1.05);  transition: all .7s ease-in-out';
-            });
-
-            Zoom[j].addEventListener('mouseout',function(){
-                Zoom[j].style = 'transform: scale(1.);  transition: all .7s ease-in-out';
-            });            
-        }
-
+                Zoom[j].addEventListener('mouseout',function(){
+                    Zoom[j].style = 'transform: scale(1.);  transition: all .7s ease-in-out';
+                });            
+            }
 
     }
 }
