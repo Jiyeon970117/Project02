@@ -385,9 +385,9 @@ function result(){
             }catch{
                 if(k==0 || k==2){ 
                     if(e.pageX > select.offsetWidth / 2){
-                        txt = 'next';
+                        txt = 'NEXT';
                     }else{
-                        txt = 'prev';                
+                        txt = 'PREV';                
                     }
                 }else{
                     dis = 'display: none';
