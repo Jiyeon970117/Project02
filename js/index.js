@@ -1,6 +1,5 @@
 $(function(){
     let len = $('.scroll').length
-    console.log(len)
     let delta, num = 0, move, posTop;
     $('main').scrollTop(0);
     $(window).on('mousewheel DOMMouseScroll',function(e){
@@ -95,7 +94,6 @@ $(function(){
 
     // 숫자 카운터 이벤트
     const Strong = document.querySelectorAll('.numtxt strong')
-    console.log(Strong)
     function count(s,e,n){
         let start = s;
         let loop=setInterval(()=>{
@@ -222,7 +220,6 @@ function result(){
         const lengBtn = document.querySelector('.leng');
         const leng = document.querySelectorAll('.leng li');
         const ko = document.querySelector('.leng li a')
-        console.log(ko)
         for(let j=0; j<leng.length; j++){
             lengBtn.addEventListener('mousemove',function(){
                 lengBtn.classList.add('active');
@@ -251,7 +248,6 @@ function result(){
         // 토글버튼 bg메뉴
         const box = document.querySelectorAll('.menu_box li');
         const Span = document.querySelectorAll('.menu_box li span');
-        console.log(box)
 
         for(let i=0; i<box.length; i++){
             box[i].addEventListener('mousemove',function(){
@@ -287,7 +283,6 @@ function result(){
         slide();
 
         const content2 = document.querySelectorAll('.con1 li figure img');
-        console.log(content2)
         
         for(let i=0; i<content2.length; i++){
             content2[i].addEventListener('mousemove',function(){
@@ -320,7 +315,6 @@ function result(){
         con3.innerHTML = tagList;
         const con3li = document.querySelectorAll('.content3 ul li')
         con3li[0].classList.add('active');
-        console.log(con3li)
 
         // html이동
         con3li[0].addEventListener('click',function(){
@@ -349,12 +343,10 @@ function result(){
         let mouseCursor = document.querySelector('.cursor');
         let con3_1 = document.querySelectorAll('.content3 ul figure');
         const videoiconBtn = document.querySelector('.video_btn');
-        console.log(videoiconBtn)
         const con2Li = document.querySelectorAll('.content2 .con1 ul li');
         const info = document.querySelectorAll('.content3 ul li div');
         const con4 = document.querySelectorAll('.content4 ul li');
         const conSection = document.querySelectorAll('section');
-        console.log(conSection)
 
         conSection.forEach(function(sec,k){
             sec.addEventListener('mouseenter',(e)=>{

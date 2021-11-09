@@ -25,7 +25,6 @@ $(function (){
 
 function init(){
     const btsBox = document.querySelector('.bts_box ul');
-    console.log(btsBox)
     let xhr, res,tagList='';
     xhr = new XMLHttpRequest();
     xhr.open('get','./js/data.json');
@@ -73,7 +72,6 @@ function init(){
         const lengBtn = document.querySelector('.leng');
         const leng = document.querySelectorAll('.leng li');
         const ko = document.querySelector('.leng li a')
-        console.log(ko)
         for(let j=0; j<leng.length; j++){
             lengBtn.addEventListener('mousemove',function(){
                 lengBtn.classList.add('active');
@@ -102,7 +100,6 @@ function init(){
         // 토글버튼 bg메뉴
         const box = document.querySelectorAll('.menu_box li');
         const Span = document.querySelectorAll('.menu_box li span');
-        console.log(box)
 
         for(let i=0; i<box.length; i++){
             box[i].addEventListener('mousemove',function(){
@@ -148,7 +145,6 @@ function init(){
         btsImg[0].classList.add('active')
         const btsBtn = document.querySelectorAll('.bts_button span');
         btsBtn[0].classList.add('active')
-        console.log(Zoom)
         
         let num = 0;
         for(let i=0; i<btsBtn.length; i++){
@@ -167,7 +163,6 @@ function init(){
         // section3
         const titCon2 = document.querySelector('.tit_con2 ul');
         const titCon3 = document.querySelectorAll('.tit_con3 span');
-        console.log(titCon3)
         tagList='';
 
             res.con5.forEach(function(v,k){
@@ -218,7 +213,6 @@ function init(){
             const videoImg = document.querySelector('.video_con2 img');
             const Btnopen = document.querySelector('.video_con2 i');
             const Btnclose = document.querySelector('.btn-close');
-            // console.log(Btnopen);
             videoImg.addEventListener('click',function(){
                 videoBox.style = 'display:block';
             });
